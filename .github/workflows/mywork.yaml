@@ -16,9 +16,9 @@ jobs:
       - name: Run snapshot action
         uses: actions/go-dependency-submission@v1
         with:
-          go-mod-path: go-example/go.mod
-          go-build-target: github.com/YOHAHDS/Assignment/go-example/cmd/octocat
-          go-build-args: -o bin/octocat
+          go-mod-path: go.mod
+          go-build-target: all
+          #go-build-args: -o bin/octocat
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
