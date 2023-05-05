@@ -7,9 +7,9 @@ jobs:
     
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v2
         with:
           go-version: ">=1.18.0"
 
@@ -18,10 +18,10 @@ jobs:
         with:
           go-mod-path: go.mod
           go-build-target: all
-          #go-build-args: -o bin/octocat
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: octocat-binary
-          path: bin/octocat
+          path: bin/
+
