@@ -10,13 +10,15 @@ jobs:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-node@v2
+        with:
+              node-verson: '16.x'
 
-      - name: Go Dependency Submission
-        uses: actions/go-dependency-submission@v1
+      - name: Setup go 
+        uses: actions/setup-go@v2
 
         with:
-          go-mod-path: YOHAHDS/Assignment
+          go-mod-path: go.mod
           go-build-target: all
 
       - name: Upload artifact
