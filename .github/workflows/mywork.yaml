@@ -1,3 +1,4 @@
+
 name: mywork
 on: [ push ]
 
@@ -7,11 +8,9 @@ jobs:
     
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.5.2
 
-      - uses: actions/setup-go@v2
-        with:
-          go-version: ">=1.18.0"
+      - uses: actions/setup-go@v2.2.1
 
       - name: Run snapshot action
         uses: actions/go-dependency-submission@v1
@@ -20,7 +19,7 @@ jobs:
           go-build-target: YOHAHDS/Assignment/origin
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2.2.4
         with:
           name: octocat-binary
           path: bin/
