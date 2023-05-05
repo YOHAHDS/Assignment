@@ -8,18 +8,19 @@ jobs:
     
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v2.5.2
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-go@v2.2.1
+      - uses: actions/setup-go@v2
 
-      - name: Run snapshot action
+      - name: Go Dependency Submission
         uses: actions/go-dependency-submission@v1
+
         with:
           go-mod-path: YOHAHDS/Assignment
-          go-build-target: YOHAHDS/Assignment/origin
+          go-build-target: all
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v2
         with:
           name: octocat-binary
           path: bin/
