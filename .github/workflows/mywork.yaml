@@ -16,8 +16,8 @@ jobs:
       - name: Run snapshot action
         uses: actions/go-dependency-submission@v1
         with:
-          go-mod-path: go.mod
-          go-build-target: all
+          go-mod-path: YOHAHDS/Assignment
+          go-build-target: YOHAHDS/Assignment/origin
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
