@@ -35,7 +35,7 @@ jobs:
           payload: |
 {		
 	"blocks": [
-								{
+		{
 									"type": "section",
 									"text": {
 										"type": "mrkdwn",
