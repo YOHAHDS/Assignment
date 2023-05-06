@@ -6,7 +6,7 @@ on:
 jobs:
   go-action-detection:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.head_commit.message, '#NORUN') 
+    if: "!startsWith(github.event.head_commit.message, '#NORUN')" 
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
