@@ -27,4 +27,4 @@ jobs:
           name: octocat-binary
           path: bin/
 
-//TEST FOR RAILWAY
+# TEST FOR RAILWAY
