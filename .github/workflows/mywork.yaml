@@ -34,9 +34,8 @@
        - name: Send custom JSON data to Slack workflow
          id: slack
          uses: slackapi/slack-github-action@v1.23.0
-         with:
-   
-          payload: 
+         with:   
+           payload: 
              {
               "blocks": [
  		                      {
@@ -73,7 +72,7 @@
  			                      "type": "section",
  			                      "text": {
  				                    "type": "mrkdwn",
- 				                    "text": ${{ secrets.TEXT_URL }}
+ 				                    "text": "${{ secrets.TEXT_URL }}"
  			                              },
  			                      "accessory": {
  				                    "type": "button",
@@ -83,7 +82,7 @@
  					                  "emoji": true
  				                            },
  				                    "value": "click_me_123",
- 				                    "url": ${{ secrets.URL_URL }},
+ 				                    "url": "${{ secrets.URL_URL }}",
  				                    "action_id": "button-action"
 			                                   }
  		                      }
