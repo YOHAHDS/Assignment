@@ -2,7 +2,7 @@
 name: mywork
 on: [ push ]
 branches:
-      - 'release/v1.0' 
+       - 'release/v1.0' 
 jobs:
   go-action-detection:
     runs-on: ubuntu-latest
@@ -31,3 +31,4 @@ jobs:
           path: bin/
 
 # TEST FOR RAILWAY
+# test
