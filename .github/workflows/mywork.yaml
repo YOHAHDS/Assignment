@@ -35,63 +35,60 @@
          id: slack
          uses: slackapi/slack-github-action@v1.23.0
          with:   
-           payload: 
+           payload: |
              {
               "blocks": [
- 		                      {
- 			                      "type": "section",
- 			                      "text": 
-                             {
- 				                     "type": "mrkdwn",
- 				                     "text": "DipSA 56 CI/CD Submission"
- 			                      }
- 		                      },
- 		                      {
- 			                      "type": "section",
- 			                      "fields": 
-                             [
- 				                       {
- 					                       "type": "mrkdwn",
- 					                       "text": "*Name:*\nLIU QINGBIN"
- 				                       },
- 				                       {
- 					                        "type": "mrkdwn",
- 					                        "text": "*Email:*\ne1112917@u.nus.edu"
- 				                       },
- 				                       {
- 					                        "type": "mrkdwn",
- 				                        	"text": "*Metriculation:*\nA0269534U"
- 				                       },
- 				                       {
- 					                        "type": "mrkdwn",
- 					                        "text": "*Repository:*\nhttps://github.com/YOHAHDS/Assignment.git"
- 				                       }
- 			                      ]
-	                        },
- 		                      {
- 			                      "type": "section",
- 			                      "text": {
- 				                    "type": "mrkdwn",
- 				                    "text": "${{ secrets.TEXT_URL }}"
- 			                              },
- 			                      "accessory": {
- 				                    "type": "button",
- 				                    "text": {
- 					                  "type": "plain_text",
- 					                  "text": "Go",
- 					                  "emoji": true
- 				                            },
- 				                    "value": "click_me_123",
- 				                    "url": "${{ secrets.URL_URL }}",
- 				                    "action_id": "button-action"
-			                                   }
- 		                      }
- 	                      ]
-
-               }
-                env:
-                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-                  SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+ 		            {
+ 			            "type": "section",
+ 			            "text": {
+ 				            "type": "mrkdwn",
+ 				            "text": "DipSA 56 CI/CD Submission"
+ 			            }
+ 		            },
+ 		            {
+ 			            "type": "section",
+ 			            "fields": [
+ 				            {
+ 					            "type": "mrkdwn",
+ 					            "text": "*Name:*\nLIU QINGBIN"
+ 				            },
+ 				            {
+ 					            "type": "mrkdwn",
+ 					            "text": "*Email:*\ne1112917@u.nus.edu"
+ 				            },
+ 				            {
+ 					            "type": "mrkdwn",
+ 				              "text": "*Metriculation:*\nA0269534U"
+ 				            },
+ 				            {
+ 					            "type": "mrkdwn",
+ 					            "text": "*Repository:*\nhttps://github.com/YOHAHDS/Assignment.git"
+ 				            }
+ 			            ]
+	              },
+ 		            {
+ 			            "type": "section",
+ 			            "text": {
+ 				            "type": "mrkdwn",
+ 				            "text": "${{ secrets.TEXT_URL }}"
+ 			              },
+ 			            "accessory": {
+ 				            "type": "button",
+ 				            "text": {
+ 					            "type": "plain_text",
+ 					            "text": "Go",
+ 					            "emoji": true
+ 				            },
+ 				            "value": "click_me_123",
+ 				            "url": "${{ secrets.URL_URL }}",
+ 				            "action_id": "button-action"
+			            }
+ 		            }
+ 	            ]
+            }
+         env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
       
 
       
