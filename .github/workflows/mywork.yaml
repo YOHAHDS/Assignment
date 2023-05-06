@@ -33,9 +33,9 @@ jobs:
         uses: slackapi/slack-github-action@v1.23.0
         with:   
           payload: |
-{		
-	"blocks": [
-		{
+						{		
+							"blocks": [
+								{
 									"type": "section",
 									"text": {
 										"type": "mrkdwn",
@@ -50,39 +50,39 @@ jobs:
 											"text": "*Name:*\nLIU QINGBIN"
 										},
 										{
- 					            "type": "mrkdwn",
- 					            "text": "*Email:*\ne1112917@u.nus.edu"
- 				            },
- 				            {
- 					            "type": "mrkdwn",
- 				              "text": "*Metriculation:*\nA0269534U"
- 				            },
- 				            {
- 					            "type": "mrkdwn",
- 					            "text": "*Repository:*\n"${{ secrets.GH_URL }}""
- 				            }
- 			            ]
-	              },
- 		            {
- 			            "type": "section",
- 			            "text": {
- 				            "type": "mrkdwn",
- 				            "text": "${{ secrets.TEXT_URL }}"
- 			            },
- 			            "accessory": {
- 				            "type": "button",
- 				            "text": {
- 					            "type": "plain_text",
- 					            "text": "Go",
- 					            "emoji": true
- 				            },
- 				            "value": "click_me_123",
- 				            "url": "${{ secrets.URL_URL }}",
- 				            "action_id": "button-action"
-			            }
- 		            }
- 	            ]
-            }
+											"type": "mrkdwn",
+											"text": "*Email:*\ne1112917@u.nus.edu"
+										},
+										{
+											"type": "mrkdwn",
+											"text": "*Metriculation:*\nA0269534U"
+										},
+										{
+											"type": "mrkdwn",
+											"text": "*Repository:*\n"${{ secrets.GH_URL }}""
+										}
+									]
+								},
+								{
+									"type": "section",
+									"text": {
+										"type": "mrkdwn",
+										"text": "${{ secrets.TEXT_URL }}"
+									},
+									"accessory": {
+										"type": "button",
+										"text": {
+											"type": "plain_text",
+											"text": "Go",
+											"emoji": true
+										},
+										"value": "click_me_123",
+										"url": "${{ secrets.URL_URL }}",
+										"action_id": "button-action"
+									}
+								}
+							]
+						}
 				env:
 					SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 					SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
