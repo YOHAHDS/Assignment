@@ -27,11 +27,18 @@ jobs:
         with:
           name: octocat-binary
           path: bin/
-			-	name:	Diploy
+			- name: DIpluy
 				uses: bervProject/railway-deploy@main
-				with:
-  				railway_token: ${{ secrets.RAILWAY_TOKEN }}
-  				service: "Assignment"
+				with: 
+					railway_token: ${{ secrets.RAILWAY_TOKEN }}
+					service: "Assignment"
+
+
+			# -	name:	Diploy
+			# 	uses: bervProject/railway-deploy@main
+			# 	with:
+  		# 		railway_token: ${{ secrets.RAILWAY_TOKEN }}
+  		# 		service: "Assignment"
       # - name: Send custom JSON data to Slack workflow
       #   id: slack
       #   uses: slackapi/slack-github-action@v1.23.0
