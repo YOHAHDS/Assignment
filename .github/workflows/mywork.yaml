@@ -32,56 +32,56 @@ jobs:
         uses: slackapi/slack-github-action@v1.23.0
         with:
           payload: |
-          {
-            "blocks": [
-              {
-                "type":"section",
-                "text":{
-                  "type":"mrkdwn",
-                  "text":"DipSA 56 CI/CD Submission"
-                }
-              },
-              {
-                "type":"section",
-                "fields":[
-                  {
-                    "type":"mrkdwn",
-                    "text":"*Name:*\nLIU QINGBIN"
-                  },
-                  {
-                    "type":"mrkdwn",
-                    "text":"*Email:*\ne1112917@u.nus.edu"
-                  },
-                  {
-                    "type":"mrkdwn",
-                    "text":"*Metriculation:*\nA0269534U"
-                  },
-                  {
-                    "type":"mekdwn",
-                    "text":"*Repository:*\n${{secrets.GH_URL}}"
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "DipSA 56 CI/CD Submission"
                   }
-                ]
-              },
-              {
-                "type":"section",
-                "text":{
-                  "type":"mrkdwn",
-                  "text":"${{secrets.TEXT_URL}}"
                 },
-                "accessory":{
-                  "type":"button",
-                  "text":{
-                    "type":"plain_text",
-                    "text":"Go",
-                    "emoji":true
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Name:*\nLIU QINGBIN"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Email:*\ne1112917@u.nus.edu"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Metriculation:*\nA0269534U"
+                    },
+                    {
+                      "type": "mekdwn",
+                      "text": "*Repository:*\n${{secrets.GH_URL}}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{secrets.TEXT_URL}}"
                   },
-                  "value":"click_me_123",
-                  "url":"${{secrets.URL_URL}}",
-                  "action_id":"button-action"
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Go",
+                      "emoji": true
+                    },
+                    "value": "click_me_123",
+                    "url": "${{secrets.URL_URL}}",
+                    "action_id": "button-action"
+                  }
                 }
-              }
-            ]
-          }
+              ]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
           SLACK_WEBHOOL_TYPE: INCOMING_WEBHOOK
