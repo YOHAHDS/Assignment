@@ -59,7 +59,7 @@ jobs:
  				            },
  				            {
  					            "type": "mrkdwn",
- 					            "text": "*Repository:*\nhttps://github.com/YOHAHDS/Assignment.git"
+ 					            "text": "*Repository:*\n"${{ secrets.GH_URL }}""
  				            }
  			            ]
 	              },
