@@ -2,98 +2,86 @@ name: mywork
 on:
   push:
     branches:
-      - 'release/v1.0' 
+      - 'release/v1.0'
 jobs:
   go-action-detection:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-lastest
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
-
       - uses: actions/setup-node@v2
         with:
-              node-verson: '16.x'
-
-      - name: Setup go 
+          node-version: '16.x'
+      - name: 'Setup go'
         uses: actions/setup-go@v2
-
-        with:
+        with: 
           go-mod-path: go.mod
           go-build-target: all
-
-
-      - name: Upload artifact
+      - name: Upload aartifact
         uses: actions/upload-artifact@v2
         with:
           name: octocat-binary
-          path: bin/
-			- name: DIpluy
-				uses: bervProject/railway-deploy@main
-				with: 
-					railway_token: ${{ secrets.RAILWAY_TOKEN }}
-					service: "Assignment"
-
-
-			# -	name:	Diploy
-			# 	uses: bervProject/railway-deploy@main
-			# 	with:
-  		# 		railway_token: ${{ secrets.RAILWAY_TOKEN }}
-  		# 		service: "Assignment"
-      # - name: Send custom JSON data to Slack workflow
-      #   id: slack
-      #   uses: slackapi/slack-github-action@v1.23.0
-      #   with:   
-      #     payload: |
-			# 			{		
-			# 				"blocks": [
-			# 					{
-			# 						"type": "section",
-			# 						"text": {
-			# 							"type": "mrkdwn",
-			# 							"text": "DipSA 56 CI/CD Submission"
-			# 						}
-			# 					},
-			# 					{
-			# 						"type": "section",
-			# 						"fields": [
-			# 							{
-			# 								"type": "mrkdwn",
-			# 								"text": "*Name:*\nLIU QINGBIN"
-			# 							},
-			# 							{
-			# 								"type": "mrkdwn",
-			# 								"text": "*Email:*\ne1112917@u.nus.edu"
-			# 							},
-			# 							{
-			# 								"type": "mrkdwn",
-			# 								"text": "*Metriculation:*\nA0269534U"
-			# 							},
-			# 							{
-			# 								"type": "mrkdwn",
-			# 								"text": "*Repository:*\n${{ secrets.GH_URL }}"
-			# 							}
-			# 						]
-			# 					},
-			# 					{
-			# 						"type": "section",
-			# 						"text": {
-			# 							"type": "mrkdwn",
-			# 							"text": "${{ secrets.TEXT_URL }}"
-			# 						},
-			# 						"accessory": {
-			# 							"type": "button",
-			# 							"text": {
-			# 								"type": "plain_text",
-			# 								"text": "Go",
-			# 								"emoji": true
-			# 							},
-			# 							"value": "click_me_123",
-			# 							"url": "${{ secrets.URL_URL }}",
-			# 							"action_id": "button-action"
-			# 						}
-			# 					}
-			# 				]
-			# 			}
-			# 	env:
-			# 		SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-			# 		SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          path: bin
+      - name: Diploy
+        uses: bervProject/railway-deploy@main
+        with:
+          railway_token: ${{secrets.RAILWAY_TOKEN}}
+          service: "Assignment"
+      - name: Send Json to slack
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+          {
+            "blocks": [
+              {
+                "type":"section",
+                "text":{
+                  "type":"mrkdwn",
+                  "text":"DipSA 56 CI/CD Submission"
+                }
+              },
+              {
+                "type":"section",
+                "fields":[
+                  {
+                    "type":"mrkdwn",
+                    "text":"*Name:*\nLIU QINGBIN"
+                  },
+                  {
+                    "type":"mrkdwn",
+                    "text":"*Email:*\ne1112917@u.nus.edu"
+                  },
+                  {
+                    "type":"mrkdwn",
+                    "text":"*Metriculation:*\nA0269534U"
+                  },
+                  {
+                    "type":"mekdwn",
+                    "text":"*Repository:*\n${{secrets.GH_URL}}"
+                  }
+                ]
+              },
+              {
+                "type":"section",
+                "text":{
+                  "type":"mrkdwn",
+                  "text":"${{secrets.TEXT_URL}}"
+                },
+                "accessory":{
+                  "type":"button",
+                  "text":{
+                    "type":"plain_text",
+                    "text":"Go",
+                    "emoji":true
+                  },
+                  "value":"click_me_123",
+                  "url":"${{secrets.URL_URL}}",
+                  "action_id":"button-action"
+                }
+              }
+            ]
+          }
+        env:
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+          SLACK_WEBHOOL_TYPE: INCOMING_WEBHOOK
