@@ -71,7 +71,7 @@
  			             "text": {
  				             "type": "mrkdwn",
  				             "text": "${{ secrets.TEXT_URL }}"
- 			               },
+ 			             },
  			             "accessory": {
  				             "type": "button",
  				             "text": {
