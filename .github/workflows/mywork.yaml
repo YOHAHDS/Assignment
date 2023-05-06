@@ -1,97 +1,98 @@
-name: mywork
-on:
-  push:
-    branches:
-      - 'release/v1.0' 
-jobs:
-  go-action-detection:
-    runs-on: ubuntu-latest
+ name: mywork
+ on:
+   push:
+     branches:
+       - 'release/v1.0' 
+ jobs:
+   go-action-detection:
+     runs-on: ubuntu-latest
     
-    steps:
-      - name: 'Checkout Repository'
-        uses: actions/checkout@v2
+     steps:
+       - name: 'Checkout Repository'
+         uses: actions/checkout@v2
 
       
 
-      - uses: actions/setup-node@v2
-        with:
-              node-verson: '16.x'
+       - uses: actions/setup-node@v2
+         with:
+               node-verson: '16.x'
 
-      - name: Setup go 
-        uses: actions/setup-go@v2
+       - name: Setup go 
+         uses: actions/setup-go@v2
 
-        with:
-          go-mod-path: go.mod
-          go-build-target: all
+         with:
+            go-mod-path: go.mod
+            go-build-target: all
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: octocat-binary
-          path: bin/
 
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.23.0
-        with:
+       - name: Upload artifact
+         uses: actions/upload-artifact@v2
+         with:
+           name: octocat-binary
+           path: bin/
+
+       - name: Send custom JSON data to Slack workflow
+         id: slack
+         uses: slackapi/slack-github-action@v1.23.0
+         with:
    
-              payload: 
+          payload: 
              {
               "blocks": [
-		                      {
-			                      "type": "section",
-			                      "text": 
-                            {
-				                     "type": "mrkdwn",
-				                     "text": "DipSA 56 CI/CD Submission"
-			                      }
-		                      },
-		                      {
-			                      "type": "section",
-			                      "fields": 
-                            [
-				                       {
-					                       "type": "mrkdwn",
-					                       "text": "*Name:*\nLIU QINGBIN"
-				                       },
-				                       {
-					                        "type": "mrkdwn",
-					                        "text": "*Email:*\ne1112917@u.nus.edu"
-				                       },
-				                       {
-					                        "type": "mrkdwn",
-				                        	"text": "*Metriculation:*\nA0269534U"
-				                       },
-				                       {
-					                        "type": "mrkdwn",
-					                        "text": "*Repository:*\nhttps://github.com/YOHAHDS/Assignment.git"
-				                       }
-			                      ]
-		                      },
-		                      {
-			                      "type": "section",
-			                      "text": {
-				                    "type": "mrkdwn",
-				                    "text": ${{ secrets.TEXT_URL }}
-			                              },
-			                      "accessory": {
-				                    "type": "button",
-				                    "text": {
-					                  "type": "plain_text",
-					                  "text": "Go",
-					                  "emoji": true
-				                            },
-				                    "value": "click_me_123",
-				                    "url": ${{ secrets.URL_URL }},
-				                    "action_id": "button-action"
+ 		                      {
+ 			                      "type": "section",
+ 			                      "text": 
+                             {
+ 				                     "type": "mrkdwn",
+ 				                     "text": "DipSA 56 CI/CD Submission"
+ 			                      }
+ 		                      },
+ 		                      {
+ 			                      "type": "section",
+ 			                      "fields": 
+                             [
+ 				                       {
+ 					                       "type": "mrkdwn",
+ 					                       "text": "*Name:*\nLIU QINGBIN"
+ 				                       },
+ 				                       {
+ 					                        "type": "mrkdwn",
+ 					                        "text": "*Email:*\ne1112917@u.nus.edu"
+ 				                       },
+ 				                       {
+ 					                        "type": "mrkdwn",
+ 				                        	"text": "*Metriculation:*\nA0269534U"
+ 				                       },
+ 				                       {
+ 					                        "type": "mrkdwn",
+ 					                        "text": "*Repository:*\nhttps://github.com/YOHAHDS/Assignment.git"
+ 				                       }
+ 			                      ]
+	                        },
+ 		                      {
+ 			                      "type": "section",
+ 			                      "text": {
+ 				                    "type": "mrkdwn",
+ 				                    "text": ${{ secrets.TEXT_URL }}
+ 			                              },
+ 			                      "accessory": {
+ 				                    "type": "button",
+ 				                    "text": {
+ 					                  "type": "plain_text",
+ 					                  "text": "Go",
+ 					                  "emoji": true
+ 				                            },
+ 				                    "value": "click_me_123",
+ 				                    "url": ${{ secrets.URL_URL }},
+ 				                    "action_id": "button-action"
 			                                   }
-		                      }
-	                     ]
+ 		                      }
+ 	                      ]
 
-              }
-              env:
-                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-                SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+               }
+                env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+                  SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
       
 
       
